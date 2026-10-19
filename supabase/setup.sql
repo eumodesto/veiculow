@@ -52,6 +52,8 @@ create table if not exists public.vehicles (
   fuel text,
   body_type text,
   color text,
+  city text,
+  state text,
   description text,
   status text not null default 'draft' check (status in ('draft', 'review', 'available', 'reserved', 'sold', 'archived')),
   is_published boolean not null default false,

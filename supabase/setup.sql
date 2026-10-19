@@ -15,7 +15,7 @@ create table if not exists public.companies (
 create table if not exists public.company_members (
   company_id uuid not null references public.companies(id) on delete cascade,
   user_id uuid not null references auth.users(id) on delete cascade,
-  role text not null default 'seller' check (role in ('owner', 'manager', 'seller', 'editor')),
+  role text not null default 'seller' check (role in ('owner', 'manager', 'seller')),
   created_at timestamptz not null default now(),
   primary key (company_id, user_id)
 );

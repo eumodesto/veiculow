@@ -11,12 +11,7 @@ import {
   Handshake,
   MessageCircle,
 } from "lucide-react";
-
-const vehicles = [
-  { name: "Hyundai Creta", version: "1.0 T GDI Platinum Auto", price: "R$ 114.990", year: "2024", km: "70.000 km", tone: "silver" },
-  { name: "Audi A1", version: "1.8 Ambition Sportback S Tronic", price: "R$ 99.990", year: "2018", km: "91.000 km", tone: "white" },
-  { name: "Honda HR-V", version: "1.5 Turbo Advance CVT", price: "R$ 154.900", year: "2025", km: "22.000 km", tone: "pearl" },
-];
+import { getFeaturedVehicles } from "@/lib/vehicles";
 
 function BrandMark({ small = false }: { small?: boolean }) {
   return (
@@ -31,7 +26,9 @@ function BrandMark({ small = false }: { small?: boolean }) {
   );
 }
 
-export default function HomePage() {
+export default async function HomePage() {
+  const vehicles = await getFeaturedVehicles();
+
   return (
     <main>
       <header className="site-header">
@@ -87,8 +84,8 @@ export default function HomePage() {
       <section className="section stock-section" id="estoque">
         <div className="section-heading"><div><div className="eyebrow"><span /> CONFIRA NOSSO ESTOQUE</div><h2>Veículos em destaque</h2></div><a className="outline-link" href="#estoque">Ver todo o estoque <ArrowRight size={18} /></a></div>
         <div className="vehicle-grid">
-          {vehicles.map((vehicle) => <article className="vehicle-card" key={vehicle.name}>
-            <div className={`vehicle-photo ${vehicle.tone}`}><div className="photo-label">Foto do veículo</div><button className="favorite" aria-label={`Favoritar ${vehicle.name}`}><Heart size={21} /></button></div>
+          {vehicles.length === 0 ? <div className="empty-stock"><CarFront size={30} /><strong>Nosso estoque está sendo atualizado</strong><p>Em breve você poderá consultar os veículos disponíveis.</p></div> : vehicles.map((vehicle) => <article className="vehicle-card" key={vehicle.id}>
+            <div className={`vehicle-photo ${vehicle.tone} ${vehicle.imageUrl ? "has-image" : ""}`} style={vehicle.imageUrl ? { backgroundImage: `url(${vehicle.imageUrl})` } : undefined}><div className="photo-label">Foto do veículo</div><button className="favorite" aria-label={`Favoritar ${vehicle.name}`}><Heart size={21} /></button></div>
             <div className="vehicle-content"><h3>{vehicle.name}</h3><p>{vehicle.version}</p><div className="vehicle-price">{vehicle.price}</div><div className="vehicle-meta"><span>{vehicle.year}</span><span>{vehicle.km}</span></div><a className="vehicle-link" href="#contato">Ver veículo <ArrowRight size={18} /></a></div>
           </article>)}
         </div>

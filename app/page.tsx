@@ -11,7 +11,7 @@ import {
   Handshake,
   MessageCircle,
 } from "lucide-react";
-import { getFeaturedVehicles } from "@/lib/vehicles";
+import { getFeaturedVehicles, getPopularBrands } from "@/lib/vehicles";
 
 function BrandMark({ small = false }: { small?: boolean }) {
   return (
@@ -27,15 +27,7 @@ function BrandMark({ small = false }: { small?: boolean }) {
 }
 
 export default async function HomePage() {
-  const vehicles = await getFeaturedVehicles();
-  const popularBrands = [
-    { name: "Volkswagen", symbol: "VW" },
-    { name: "Fiat", symbol: "FIAT" },
-    { name: "Toyota", symbol: "TOYOTA" },
-    { name: "Chevrolet", symbol: "＋" },
-    { name: "Jeep", symbol: "JEEP" },
-    { name: "Hyundai", symbol: "H" },
-  ];
+  const [vehicles, popularBrands] = await Promise.all([getFeaturedVehicles(), getPopularBrands()]);
 
   return (
     <main>
@@ -80,7 +72,6 @@ export default async function HomePage() {
             sizes="(max-width: 680px) 100vw, 58vw"
             className="hero-facade-image"
           />
-          <div className="facade-caption">Fachada real da loja<br /><strong>Ponto Auto Veículos</strong></div>
         </div>
       </section>
 
@@ -95,7 +86,9 @@ export default async function HomePage() {
           <strong>Marcas mais buscadas</strong>
           {popularBrands.map((brand) => (
             <a href="#estoque" className="brand-chip" key={brand.name} aria-label={`Ver veículos ${brand.name}`}>
-              <span className="brand-symbol" aria-hidden="true">{brand.symbol}</span>
+              <span className="brand-symbol" aria-hidden="true">
+                {brand.logoUrl ? <Image src={brand.logoUrl} alt="" width={28} height={28} /> : brand.symbol}
+              </span>
               <span className="brand-tooltip" role="tooltip">{brand.name}</span>
             </a>
           ))}

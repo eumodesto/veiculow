@@ -1,0 +1,16 @@
+# Segredos e configurações locais
+.env
+.env.*
+!.env.example
+.vercel/
+
+# Dependências e artefatos
+node_modules/
+.next/
+dist/
+coverage/
+
+# Logs e arquivos temporários
+*.log
+tmp/
+temp/

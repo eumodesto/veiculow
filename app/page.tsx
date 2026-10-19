@@ -63,10 +63,15 @@ export default async function HomePage() {
             <div><Handshake size={24} /><span>Negociação<br />segura e transparente</span></div>
           </div>
         </div>
-        <div className="hero-facade" role="img" aria-label="Fachada da Ponto Auto Veículos">
-          <div className="facade-glow" />
-          <div className="facade-sign"><Image src="/brand/icon.png" alt="" width={72} height={72} /><span>PONTO AUTO<br /><small>VEÍCULOS</small></span></div>
-          <div className="facade-building"><div className="awning" /><div className="glass-grid" /><div className="showroom-lights"><i /><i /><i /><i /><i /></div><div className="showroom-cars"><b /><b /><b /></div></div>
+        <div className="hero-facade" role="img" aria-label="RAM 2500 em frente à Ponto Auto Veículos">
+          <Image
+            src="/brand/hero-ram-2500.png"
+            alt="RAM 2500 em frente à Ponto Auto Veículos"
+            fill
+            priority
+            sizes="(max-width: 680px) 100vw, 58vw"
+            className="hero-facade-image"
+          />
           <div className="facade-caption">Fachada real da loja<br /><strong>Ponto Auto Veículos</strong></div>
         </div>
       </section>

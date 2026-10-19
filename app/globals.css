@@ -39,7 +39,9 @@ h1 em { color:var(--brand); font-style:normal; }
 .trust-row > div:first-child { padding-left:0; }
 .trust-row > div:last-child { border-right:0; }
 .trust-row span { color:#344054; font-size:12px; line-height:1.45; }
-.hero-facade { min-height:555px; position:relative; overflow:hidden; background:linear-gradient(135deg,#0d1515 5%,#183e30 55%,#d8ebe1 56%,#f5f8f7 100%); }
+.hero-facade { min-height:555px; position:relative; overflow:hidden; background:#0d1515; }
+.hero-facade-image { object-fit:cover; object-position:center; }
+.hero-facade::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(4,20,15,.22),transparent 42%),linear-gradient(0deg,rgba(4,20,15,.22),transparent 34%); pointer-events:none; }
 .facade-glow { position:absolute; width:70%; height:70%; right:-10%; top:8%; border-radius:50%; background:radial-gradient(circle,rgba(145,255,197,.42),transparent 65%); }
 .facade-sign { position:absolute; z-index:1; left:8%; top:14%; display:flex; align-items:center; gap:12px; color:#f8fffb; font-size:25px; line-height:.9; font-weight:800; letter-spacing:1px; transform:rotate(-4deg); text-shadow:0 2px 12px rgba(0,0,0,.4); }
 .facade-sign img { border-radius:50%; filter:drop-shadow(0 4px 6px rgba(0,0,0,.28)); }

@@ -107,6 +107,7 @@ h2 { font-size:36px; line-height:1.15; letter-spacing:-1.5px; }
 .admin-page { min-height:100vh; padding:48px 24px 80px; background:var(--page); }
 .admin-shell { width:min(100%,1040px); margin:0 auto; }
 .admin-header { display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:28px; }
+.admin-header-actions { display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
 .admin-header h1 { max-width:none; margin-top:8px; font-size:clamp(32px,5vw,48px); letter-spacing:-2px; }
 .admin-header p,.admin-card-heading p { color:var(--muted); font-size:14px; line-height:1.5; margin-top:8px; }
 .admin-card { padding:26px; margin-top:20px; background:var(--surface); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); }
@@ -120,6 +121,9 @@ h2 { font-size:36px; line-height:1.15; letter-spacing:-1.5px; }
 .admin-form input:focus { border-color:var(--brand); box-shadow:0 0 0 3px rgba(22,101,52,.12); }
 .admin-form .button { min-height:48px; }
 .admin-status { margin-top:16px; color:var(--brand); font-size:13px; }
+.admin-empty { margin:18px 0 0; color:var(--muted); }
+.admin-login-shell { max-width:560px; }
+.admin-back-link { display:inline-block; margin-top:18px; color:var(--brand-dark); font-weight:700; }
 .brand-admin-list { display:grid; gap:10px; margin-top:20px; }
 .brand-admin-row { display:flex; align-items:center; gap:14px; min-height:66px; padding:10px 12px; border:1px solid #edf1f4; border-radius:10px; }
 .brand-admin-row > div { display:grid; gap:3px; flex:1; }.brand-admin-row small { color:var(--muted); font-size:11px; }.brand-admin-row .brand-symbol { flex:0 0 42px; width:42px; height:42px; }.brand-admin-row .brand-symbol img { width:34px; height:34px; }

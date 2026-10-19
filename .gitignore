@@ -14,3 +14,7 @@ coverage/
 *.log
 tmp/
 temp/
+
+# Cópia local usada para servir a porta 3001
+.local-3001/
+*.tsbuildinfo

@@ -70,7 +70,16 @@ h1 em { color:var(--brand); font-style:normal; }
 .popular-brands { display:flex; align-items:center; gap:12px; padding:20px 10px 0; color:#344054; }
 .popular-brands strong { margin-right:8px; font-size:13px; white-space:nowrap; }
 .popular-brands a { background:#fff; border:1px solid #eef1f4; box-shadow:var(--shadow); border-radius:999px; padding:9px 22px; font-size:12px; color:#344054; }
-.popular-brands a:hover { border-color:#9fd3b7; color:var(--brand); }
+.brand-chip { position:relative; display:inline-flex; align-items:center; justify-content:center; width:76px; height:48px; padding:0 !important; border-radius:12px !important; transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease, color .18s ease; }
+.brand-chip:hover,.brand-chip:focus-visible { color:var(--brand); border-color:#79bd97 !important; box-shadow:0 8px 18px rgba(22,101,52,.18); transform:translateY(-3px); outline:none; }
+.brand-symbol { display:grid; place-items:center; width:34px; height:34px; border:2px solid currentColor; border-radius:50%; font-size:10px; line-height:1; font-weight:800; letter-spacing:-.5px; }
+.brand-chip:nth-of-type(3) .brand-symbol { border-radius:8px; font-size:8px; }
+.brand-chip:nth-of-type(4) .brand-symbol { border-radius:50%; font-size:17px; }
+.brand-chip:nth-of-type(5) .brand-symbol { border-radius:8px; font-size:8px; }
+.brand-chip:nth-of-type(6) .brand-symbol { border-radius:8px 8px 50% 50%; font-size:18px; }
+.brand-tooltip { position:absolute; left:50%; bottom:calc(100% + 8px); z-index:10; padding:6px 9px; border-radius:6px; color:#fff; background:#101828; font-size:11px; font-weight:600; white-space:nowrap; opacity:0; pointer-events:none; transform:translate(-50%,4px); transition:opacity .15s ease, transform .15s ease; }
+.brand-tooltip::after { content:""; position:absolute; left:50%; top:100%; border:4px solid transparent; border-top-color:#101828; transform:translateX(-50%); }
+.brand-chip:hover .brand-tooltip,.brand-chip:focus-visible .brand-tooltip { opacity:1; transform:translate(-50%,0); }
 .section { width:min(calc(100% - 80px),1200px); margin:58px auto 0; }
 .section-heading { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:28px; }
 h2 { font-size:36px; line-height:1.15; letter-spacing:-1.5px; }

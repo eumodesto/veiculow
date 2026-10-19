@@ -28,6 +28,14 @@ function BrandMark({ small = false }: { small?: boolean }) {
 
 export default async function HomePage() {
   const vehicles = await getFeaturedVehicles();
+  const popularBrands = [
+    { name: "Volkswagen", symbol: "VW" },
+    { name: "Fiat", symbol: "FIAT" },
+    { name: "Toyota", symbol: "TOYOTA" },
+    { name: "Chevrolet", symbol: "＋" },
+    { name: "Jeep", symbol: "JEEP" },
+    { name: "Hyundai", symbol: "H" },
+  ];
 
   return (
     <main>
@@ -83,7 +91,15 @@ export default async function HomePage() {
           <label className="search-field price-field"><span>Faixa de preço</span><div><span>Todos os preços</span><ChevronDown size={18} /></div></label>
           <button className="button button-primary search-button"><Search size={20} /> Buscar veículos</button>
         </div>
-        <div className="popular-brands"><strong>Marcas mais buscadas</strong>{["Volkswagen", "Fiat", "Toyota", "Chevrolet", "Jeep", "Hyundai"].map((brand) => <a href="#estoque" key={brand}>{brand}</a>)}</div>
+        <div className="popular-brands" aria-label="Marcas mais buscadas">
+          <strong>Marcas mais buscadas</strong>
+          {popularBrands.map((brand) => (
+            <a href="#estoque" className="brand-chip" key={brand.name} aria-label={`Ver veículos ${brand.name}`}>
+              <span className="brand-symbol" aria-hidden="true">{brand.symbol}</span>
+              <span className="brand-tooltip" role="tooltip">{brand.name}</span>
+            </a>
+          ))}
+        </div>
       </section>
 
       <section className="section stock-section" id="estoque">
